@@ -9,8 +9,6 @@ __pycache__/
 *$py.class
 *.so
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints
 
 # IDE
 .vscode/
@@ -42,4 +40,8 @@ Thumbs.db
 *.log
 
 # Environment variables
-.env 
+.env
+
+# Specific notebook files to exclude
+notebooks/ultimate_grid_search_strategy.ipynb 
+notebooks/complete_resumable_grid_search.ipynb
