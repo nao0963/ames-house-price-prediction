@@ -1,91 +1,72 @@
-# Kaggle House Prices Competition
+# Ames House Price Prediction Analysis
 
-이 프로젝트는 Kaggle의 House Prices Competition을 위한 데이터 분석 환경입니다.
+An explainable machine learning analysis of house price determinants using the Ames Housing dataset. This project focuses on understanding the key factors that drive residential property values through comprehensive feature analysis and model interpretation.
 
-## 설치된 패키지
-
-- numpy: 수치 계산
-- pandas: 데이터 분석
-- matplotlib: 데이터 시각화
-- seaborn: 통계 시각화
-- scikit-learn: 머신러닝
-- jupyter: Jupyter 노트북 환경
-- kaggle: Kaggle API 클라이언트
-
-## 환경 설정
-
-### 1. 가상환경 활성화
-```bash
-source venv/bin/activate
-```
-
-### 2. Kaggle API 키 설정
-
-Kaggle API를 사용하려면 API 키가 필요합니다:
-
-1. [Kaggle 웹사이트](https://www.kaggle.com)에 로그인
-2. 계정 설정 > API 섹션으로 이동
-3. "Create New API Token" 클릭하여 `kaggle.json` 파일 다운로드
-4. 다운로드한 파일을 다음 위치에 저장:
-   ```bash
-   mv ~/Downloads/kaggle.json ~/.kaggle/kaggle.json
-   chmod 600 ~/.kaggle/kaggle.json
-   ```
-
-### 3. Jupyter 노트북 실행
-
-```bash
-source venv/bin/activate
-jupyter notebook
-```
-
-또는 JupyterLab:
-```bash
-source venv/bin/activate
-jupyter lab
-```
-
-## Kaggle CLI 사용법
-
-### 대회 데이터 다운로드
-```bash
-kaggle competitions download -c home-data-for-ml-course
-```
-
-### 데이터 압축 해제
-```bash
-unzip home-data-for-ml-course.zip
-```
-
-### 제출 파일 업로드
-```bash
-kaggle competitions submit -c house-prices-advanced-regression-techniques -f submission.csv -m "My submission message"
-```
-
-## 프로젝트 구조
+## Analysis Structure
 
 ```
-kaggle-house-prices-competition/
-├── venv/                    # 가상환경
-├── requirements.txt         # 패키지 목록
-├── README.md               # 이 파일
-├── data/                   # 데이터 파일들 (다운로드 후)
-├── notebooks/              # Jupyter 노트북들
-└── submissions/            # 제출 파일들
+ames-house-price-prediction/
+├── data/                           # Dataset repository
+│   ├── raw/                       # Original Ames Housing data
+│   └── processed/                 # Feature-engineered datasets
+├── models/                        # Model artifacts and interpretations
+├── notebooks/                     # Analysis notebooks (analytical progression)
+│   ├── 01_data_preparation/       # Data exploration and preprocessing analysis
+│   ├── 02_feature_engineering/    # Feature importance and selection analysis
+│   ├── 03_basic_models/          # Model comparison and baseline insights
+│   ├── 04_hyperparameter_tuning/ # Performance optimization analysis
+│   └── 05_distributed_computing/ # Scalable analysis methods
+├── results/                       # Key findings and visualizations
+└── scripts/                       # Analysis automation tools
 ```
 
-## 다음 단계
+## Analytical Framework
 
-1. Kaggle API 키 설정 완료
-2. 대회 데이터 다운로드
-3. 데이터 탐색 및 분석 시작
-4. 모델 개발 및 평가
-5. 예측 결과 제출
+This analysis provides insights into house price determinants through:
 
-## 유용한 명령어
+1. **Data Exploration & Understanding** (`01_data_preparation/`)
+   - Initial data quality assessment and patterns discovery
+   - Distribution analysis of key housing characteristics
+   - Identification of data relationships and anomalies
 
-- 가상환경 활성화: `source venv/bin/activate`
-- 가상환경 비활성화: `deactivate`
-- 패키지 설치: `pip install package_name`
-- 패키지 목록 업데이트: `pip freeze > requirements.txt`
-- Jupyter 커널 확인: `jupyter kernelspec list` 
+2. **Feature Importance Analysis** (`02_feature_engineering/`)
+   - Identification of key price drivers
+   - Feature selection based on predictive power
+   - Engineering of meaningful property characteristics
+
+3. **Model Interpretability** (`03_basic_models/`)
+   - Linear model coefficients analysis
+   - Ridge regression feature weights
+   - Random Forest feature importance rankings
+
+4. **Performance Trade-offs** (`04_hyperparameter_tuning/`)
+   - Model complexity vs interpretability analysis
+   - Optimization impact on feature importance
+   - Predictive accuracy vs explainability balance
+
+5. **Scalable Analysis Methods** (`05_distributed_computing/`)
+   - Large-scale feature importance computation
+   - Distributed model interpretation techniques
+
+## Dataset Characteristics
+
+The Ames Housing dataset provides detailed residential property information from Ames, Iowa, featuring 79 explanatory variables covering:
+- **Physical attributes**: Size, age, condition, quality ratings
+- **Location factors**: Neighborhood, proximity to amenities
+- **Financial aspects**: Sale conditions, property type classifications
+- **Structural details**: Foundation, roofing, utilities, garage specifications
+
+## Key Insights
+
+- **Feature Hierarchy**: Identification of primary, secondary, and tertiary price influencers
+- **Interpretable Models**: Focus on understanding coefficient meanings and feature interactions
+- **Practical Implications**: Translation of statistical findings into real estate market insights
+- **Model Transparency**: Clear explanation of how predictions are generated
+- **Feature Engineering Impact**: Quantification of engineered feature contributions to model understanding
+
+## Model Interpretability Analysis
+
+The analysis compares model types for explainability:
+- **Linear Regression**: Direct coefficient interpretation and feature significance
+- **Ridge Regression**: Regularization effects on feature importance rankings
+- **Random Forest**: Feature importance scores and decision path analysis 
